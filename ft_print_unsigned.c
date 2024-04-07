@@ -1,10 +1,14 @@
 #include "ft_printf.h"
 
-int	num_len(unsigned	int n)
+static int	num_len(unsigned int n)
 {
 	int	len;
 
 	len = 0;
+	if (n == 0)
+	{
+		return (1);
+	}
 	while (n != 0)
 	{
 		n /= 10;
@@ -13,7 +17,7 @@ int	num_len(unsigned	int n)
 	return (len);
 }
 
-char	*ft_uitoa(unsigned int n)
+static char	*ft_uitoa(unsigned int n)
 {
 	char	*num;
 	int		len;
@@ -23,7 +27,7 @@ char	*ft_uitoa(unsigned int n)
 	if (!num)
 		return (NULL);
 	num[len] = '\0';
-	while (n != 0)
+	while (len > 0)
 	{
 		num[len - 1] = n % 10 + '0';
 		n /= 10;
@@ -38,11 +42,6 @@ int	ft_print_unsigned(unsigned int n)
 	char	*str;
 
 	len = 0;
-	if (n == 0)
-	{
-		len += ft_print_char('0');
-		return (len);
-	}
 	str = ft_uitoa(n);
 	len += ft_print_str(str);
 	free(str);

@@ -15,8 +15,8 @@ static int	format_type(va_list args, const char c)
 		len += ft_print_nbr(va_arg(args, int));
 	else if (c == 'u')
 		len += ft_print_unsigned(va_arg(args, unsigned int));
-	// else if (c == 'x' || 'X')
-	// 	len += ft_print_hex(va_arg(args, unsigned int), c);
+	else if (c == 'x' || c == 'X')
+		len += ft_print_hex(va_arg(args, unsigned int), c);
 	else if (c == '%')
 		len += ft_print_char('%');
 	return (len);

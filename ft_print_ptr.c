@@ -1,19 +1,19 @@
 #include "ft_printf.h"
 
-int	ft_ptr_len(unsigned long long num)
+static int	ft_ptr_len(unsigned long long num)
 {
 	int	len;
 
 	len = 0;
 	while (num != 0)
 	{
-		len++;
 		num = num / 16;
+		len++;
 	}
 	return (len);
 }
 
-void	recur_print_ptr(unsigned long long num)
+static void	recur_print_ptr(unsigned long long num)
 {
 	if (num >= 16)
 	{

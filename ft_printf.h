@@ -10,5 +10,6 @@ int	ft_print_str(char *str);
 int	ft_print_ptr(unsigned long long ptr);
 int	ft_print_nbr(int n);
 int	ft_print_unsigned(unsigned int n);
+int	ft_print_hex(unsigned int n, const char c);
 
 #endif
