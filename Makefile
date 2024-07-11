@@ -1,12 +1,15 @@
 NAME = libftprintf.a
 
-FILES = 
-
-BONUS = 
+FILES = ft_itoa_testing.c \
+		ft_print_char.c \
+		ft_print_hex.c \
+		ft_print_nbr.c \
+		ft_print_ptr.c \
+		ft_print_str.c \
+		ft_print_unsigned.c \
+		ft_printf.c
 
 OBJS = $(FILES:.c=.o)
-
-OBJS_B = $(BONUS:.c=.o)
 
 HEAD = ft_printf.h
 
@@ -26,15 +29,12 @@ all:	$(NAME)
 $(NAME):    $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-bonus:	$(NAME) $(OBJS_B)
-	$(AR) $(NAME) $(OBJS_B)
-
 clean:      
-	$(RM) $(OBJS) $(OBJS_B)
+	$(RM) $(OBJS)
 
 fclean:     clean
-	$(RM) $(NAME) $(bonus)
+	$(RM) $(NAME)
 
 re:	fclean all
 
-.PHONY:	all bonus clean fclean re
+.PHONY:	all clean fclean re

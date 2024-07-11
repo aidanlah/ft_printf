@@ -17,8 +17,8 @@ static void	recur_print_hex(unsigned int num, const char c)
 {
 	if (num >= 16)
 	{
-		recur_print_ptr(num / 16, c);
-		recur_print_ptr(num % 16, c);
+		recur_print_hex(num / 16, c);
+		recur_print_hex(num % 16, c);
 	}
 	else
 	{
